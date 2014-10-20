@@ -1,0 +1,39 @@
+@import "../../../vendor/twitter/bootstrap/less/bootstrap.less";
+
+body {
+    padding-top: 60px;
+}
+
+.container .jumbotron {
+	@media screen and (max-width: @screen-md-min) {
+		border-radius: 0;
+		h1, p {
+			text-align: center;
+		}
+	}
+	.icon {
+		background-image: url('/assets/icons/logo.png');
+		background-repeat: no-repeat;
+		background-position: center center;  
+		background-size: contain;
+		width: 100%;
+		display: inline-block;
+		position: relative;
+	}
+	.icon:after {
+		padding-top: 100%;
+		display: block;
+		content: '';
+
+		@media screen and (max-width: @screen-md-min) {
+			padding-top: 25%;
+		}
+	}
+}
+
+#js-map {
+  height: 20em;
+}
+
+.no-padding,
+.no-padding .panel-body { padding: 0; }

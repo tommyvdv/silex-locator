@@ -1,0 +1,15 @@
+# nice urls
+RewriteEngine On
+RewriteBase /
+
+# only one base url
+#RewriteCond %{HTTP_HOST} !^url\.ld [NC]
+#RewriteCond %{HTTP_HOST} !.*\.dev [NC]
+#RewriteCond %{HTTP_HOST} !.*\.xip.io [NC]
+#RewriteRule ^(.*)$ http://url.ld/$1 [R=301,L]
+
+# handle urls
+RewriteCond %{REQUEST_URI} !^$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [NC,L]

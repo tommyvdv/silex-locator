@@ -1,0 +1,28 @@
+{# src/Acme/DemoBundle/Resources/views/Form/fields.html.twig #}
+
+{% block text_widget %}
+	<div class="form-group">
+		{{- form_label(form) -}}
+		{% set type = type|default('text') -%}
+    	<input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %} class="form-control"/>
+		{{- form_errors(form) -}}
+	</div>
+{% endblock %}
+
+{% block checkbox_widget -%}
+	<div class="checkbox">
+		<label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}><input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} /> {{ label|trans({}, translation_domain) }}</label></div>
+{%- endblock checkbox_widget %}
+
+{% block form_row -%}
+	{{- form_widget(form) -}}
+{%- endblock form_row %}
+
+{% block integer_widget -%}
+	<div class="form-group">
+	    {{- form_label(form) -}}
+		{% set type = type|default('number') %}
+    	<input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %} class="form-control"/>
+		{{- form_errors(form) -}}
+	</div>
+{%- endblock integer_widget %}
